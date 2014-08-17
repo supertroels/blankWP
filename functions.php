@@ -1,1 +1,1 @@
-<?php include_once 'rigWP/init.php' ?>
+<?php require_once 'rigWP/init.php' ?>
