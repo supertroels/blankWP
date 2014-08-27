@@ -1,42 +1,23 @@
 <!doctype html>
 
-<html lang="en">
-<head>
+<html<?php do_action('template/html/attributes'); ?>>
 
-	<meta charset="utf-8">
-
-	<title><?php apply_filters('parent/head/title', wp_title('&raquo;', false)) ?></title>
-
-	<?php if($site_desc = apply_filters('parent/head_description', '')): ?>
-	<meta name="description" content="<?php echo $site_desc ?>">
-	<?php endif; ?>
-
-	<?php if($site_author = apply_filters('parent/head_author', '')): ?>
-	<meta name="author" content="<?php echo $site_author ?>">
-	<?php endif; ?>
-
-  	<?php apply_filters('parent/head_html5shiv', '<!--[if lt IE 9]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  		<![endif]-->');
-  	?>
+<head<?php do_action('template/head/attributes'); ?>>
 
 	<?php wp_head() ?>
 
 </head>
 
-<body>
+<body<?php do_action('template/body/attributes'); ?>>
+	<?php do_action('template/body/begin'); ?>
 
-	<?php do_action('parent/wrapper/before'); ?>
-	<div class="wrapper">
-		<?php do_action('parent/wrapper/start'); ?>
+	<?php do_action('template/header/before'); ?>
+	<header<?php do_action('template/header/attributes'); ?>>
+		<?php do_action('template/header/begin'); ?>
+		<?php do_action('template/header/end'); ?>
+	</header>
+	<?php do_action('template/header/after'); ?>
 
-		<?php do_action('parent/header/before'); ?>
-		<header>
-			<?php do_action('parent/header/start'); ?>
-			<?php do_action('parent/header/end'); ?>
-		</header>
-		<?php do_action('parent/header/before'); ?>
-
-		<?php do_action('parent/main/before'); ?>
-		<div class="main">
-			<?php do_action('parent/main/start') ?>
+	<?php do_action('template/main/before'); ?>
+	<div<?php do_action('template/main/attributes'); ?>>
+		<?php do_action('template/main/begin') ?>

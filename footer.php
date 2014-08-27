@@ -1,17 +1,17 @@
-
-			<?php do_action('parent/main/end') ?>
-		</div>
-		<?php do_action('parent/main/before'); ?>
-
-		<?php do_action('parent/footer/before'); ?>
-		<footer>
-			<?php do_action('parent/footer/start'); ?>
-			<?php do_action('parent/footer/end'); ?>
-		</footer>
-		<?php do_action('parent/footer/before'); ?>
-
-		<?php do_action('parent/wrapper/end'); ?>
+		<?php do_action('template/main/end') ?>
 	</div>
-	<?php do_action('parent/wrapper/after'); ?>
+	<?php do_action('template/main/before'); ?>
+
+	<?php do_action('template/footer/before'); ?>
+	<footer<?php do_action('template/footer/attributes'); ?>>
+		<?php do_action('template/footer/begin'); ?>
+		<?php do_action('template/footer/end'); ?>
+	</footer>
+	<?php do_action('template/footer/before'); ?>	
+	<?php do_action('template/body/end'); ?>
+	
+	<?php wp_footer(); ?>
+
 </body>
+
 </html>
