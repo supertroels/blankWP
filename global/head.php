@@ -2,7 +2,8 @@
 
 /*
 This is the markup that goes in the <head> tag via the wp_head filter.
-Overwrite this template by copying it to the same location in your html
+Overwrite this template by copying it to the same location in your child
+theme.
 */
 
 ?>
