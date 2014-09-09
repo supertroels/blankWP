@@ -14,8 +14,6 @@ class blankWP{
 			add_filter('template/'.$elem.'/get_attributes', array($this, 'filter_attributes'), 1, 2);
 		}
 
-		add_action('wp_footer', array($this, 'footer_test'));
-
 		add_action('wp_head', array($this, 'get_head_template'), 1);
 		add_action('init', array($this, 'disable_wp_head_actions'), 1);
 		add_filter('template/head/title', array($this, 'get_page_title'), 10, 2);

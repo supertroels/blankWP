@@ -1,7 +1,9 @@
 <?php
 
 function get_content(){
+
 	global $post;
+
 	if(is_singular()){
 		
 		setup_postdata($post);
@@ -49,6 +51,7 @@ function get_content(){
 	}
 
 	locate_template($tmpls, true);
+
 }
 
 ?>
