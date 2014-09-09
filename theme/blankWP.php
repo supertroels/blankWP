@@ -25,7 +25,8 @@ class blankWP{
 				$attrs['id'] = 'main';
 				break;
 			case 'body':
-				$attrs['class'] = 'dble';
+				$attrs['class'] = 'idiot';
+				$attrs['wingman'] = 'smelly';
 				break;
 		}
 
@@ -38,20 +39,38 @@ class blankWP{
 		$filter = explode('/', current_filter());
 		$elem 	= trim(strtolower($filter[1]));
 
+		/* Special check for body */
 		if($elem == 'body'){
+			
+			if($attrs = apply_filters('template/body/get_attributes', array(), $elem)){
+				if(isset($attrs['class']) and $body_classes = $attrs['class']){
+					if(is_string($body_classes))
+						$body_classes = explode(' ', $body_classes);
+				}
+			}
+
 			echo ' ';
-			body_class();
+			if($body_classes)
+				body_class(implode(' ', $body_classes));
+			else
+				body_class();
+
 		}
 
-		if($attrs = apply_filters('template/'.$elem.'/get_attributes', $attrs, $elem)){
+		/* Carry on */
+	
+		if($attrs = apply_filters('template/'.$elem.'/get_attributes', array(), $elem)){
 
 			$echo = '';
 			foreach($attrs as $key => $attr){
-				if($elem == 'body' and $key == 'class'){
+
+				/* We already did the body class */
+				if($elem == 'body' and $key == 'class')
 					continue;
-				}
+
 				if(is_string($attr))
 					$attr = explode(' ', $attr);
+
 
 				$echo .= ' '.strtolower($key).'="'.implode(' ', array_filter(array_map('trim', $attr))).'"';
 			}
