@@ -4,9 +4,13 @@ function get_content(){
 
 	global $post;
 
+
 	if(is_singular()){
-		
+
 		setup_postdata($post);
+
+		if(is_front_page())
+			$tmpls[] = 'content/front-page.php';
 
 		$tmpls[] = 'content/'.get_post_type().'-'.$post->post_name.'.php';
 		$tmpls[] = 'content/'.get_post_type().'-'.$post->ID.'.php';
@@ -15,7 +19,10 @@ function get_content(){
 
 	}
 	else{
-		if(is_tax()){
+		if(is_home()){
+			$tmpls[] = 'loop/home-loop.php';
+		}
+		elseif(is_tax()){
 			$tax_id	 = get_query_var('tax');
 			$tax  	 = get_taxonomy($tax_id);
 
