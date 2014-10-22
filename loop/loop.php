@@ -9,7 +9,7 @@
 </div>
 <?php endwhile; ?>
 </div>
-<?php locate_template(array('loop/pagination.php', 'loop/pagination-'.get_post_type().'.php'), true); ?>
+<?php locate_template(array('loop/pagination-'.get_query_var('post_type').'.php', 'loop/pagination.php'), true); ?>
 <?php else: ?>
-<?php locate_template(array('loop/no-results.php', 'loop/no-results-'.get_post_type().'.php'), true); ?>
+<?php locate_template(array('loop/no-results-'.get_query_var('post_type').'.php', 'loop/no-results.php'), true); ?>
 <?php endif; ?>
