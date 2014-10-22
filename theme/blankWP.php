@@ -24,10 +24,6 @@ class blankWP{
 			case 'main':
 				$attrs['id'] = 'main';
 				break;
-			case 'body':
-				$attrs['class'] = 'idiot';
-				$attrs['wingman'] = 'smelly';
-				break;
 		}
 
 		return $attrs;
